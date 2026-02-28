@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>API + CLI | DataChat Docs</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head><body>
+<header class="topbar"><div class="container"><div class="brand"><a href="/docs/" style="color:inherit;text-decoration:none;">DataChat Docs</a></div><nav class="nav"><a href="/">Home</a><a href="/docs/">Index</a></nav></div></header>
+<main class="container docs-shell">
+<aside class="docs-nav card"><strong>Interfaces</strong><ul><li><a href="getting-started.html">Getting Started</a></li><li><a href="train-datachat.html">Train Flow</a></li></ul></aside>
+<article class="docs-main card">
+<h1>API and CLI</h1>
+<h2>High-value CLI commands</h2>
+<pre><code>uv run datachat dev
+uv run datachat status
+uv run datachat ask "list all available tables"
+uv run datachat onboarding wizard --database-url postgresql://user:pass@host:5432/db
+uv run datachat dp pending list
+uv run datachat reset --yes</code></pre>
+
+<h2>Core API endpoints (subset)</h2>
+<table class="table">
+  <thead><tr><th>Endpoint</th><th>Purpose</th></tr></thead>
+  <tbody>
+    <tr><td><code>POST /api/v1/chat</code></td><td>Ask question and get answer + SQL artifacts.</td></tr>
+    <tr><td><code>GET /api/v1/system/status</code></td><td>Runtime readiness and initialization status.</td></tr>
+    <tr><td><code>POST /api/v1/datapoints/generate</code></td><td>Generate datapoints from profile.</td></tr>
+    <tr><td><code>GET /api/v1/datapoints/generate/jobs/{job_id}</code></td><td>Poll generation job status.</td></tr>
+    <tr><td><code>POST /api/v1/datapoints/pending/{id}/approve</code></td><td>Approve pending datapoint and sync.</td></tr>
+    <tr><td><code>POST /api/v1/system/reset</code></td><td>Reset runtime/system state for fresh tests.</td></tr>
+  </tbody>
+</table>
+
+<h2>Validation tips</h2>
+<ul>
+<li>Keep one known-good question set per domain and rerun after major changes.</li>
+<li>Check SQL output first, then answer formatting and evidence.</li>
+<li>When testing training flow, rerun the exact same question post-save.</li>
+</ul>
+</article></main></body></html>

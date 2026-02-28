@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Database Engines | DataChat Docs</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head><body>
+<header class="topbar"><div class="container"><div class="brand"><a href="/docs/" style="color:inherit;text-decoration:none;">DataChat Docs</a></div><nav class="nav"><a href="/">Home</a><a href="/docs/">Index</a></nav></div></header>
+<main class="container docs-shell">
+<aside class="docs-nav card"><strong>Engines</strong><ul><li><a href="setup-and-onboarding.html">Setup</a></li><li><a href="api-and-cli.html">API + CLI</a></li></ul></aside>
+<article class="docs-main card">
+<h1>Engine Support</h1>
+<table class="table">
+  <thead><tr><th>Area</th><th>Supported</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Target query engine</td><td>PostgreSQL, MySQL, ClickHouse</td><td>Supported in UI + CLI ask/onboarding flows.</td></tr>
+    <tr><td>System database</td><td>PostgreSQL</td><td>Used for connection registry, profiling jobs, pending approvals, and runtime state.</td></tr>
+    <tr><td>Metadata generation</td><td>All target engines above</td><td>Profile data + generation path available; keep smoke tests green.</td></tr>
+  </tbody>
+</table>
+
+<h2>Recommendation</h2>
+<ul>
+<li>Use PostgreSQL for <code>SYSTEM_DATABASE_URL</code>.</li>
+<li>Keep target DB separate from system DB in production-like setups.</li>
+<li>Validate onboarding + ask + train + reset per engine before release.</li>
+</ul>
+
+<h2>Manual parity checklist</h2>
+<ol>
+<li>Onboarding wizard completes.</li>
+<li>First ask returns SQL + answer.</li>
+<li>Train datapoint flow creates/updates and impacts retry.</li>
+<li>Reset clears runtime state and UI history.</li>
+</ol>
+</article></main></body></html>

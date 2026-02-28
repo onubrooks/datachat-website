@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Troubleshooting | DataChat Docs</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head><body>
+<header class="topbar"><div class="container"><div class="brand"><a href="/docs/" style="color:inherit;text-decoration:none;">DataChat Docs</a></div><nav class="nav"><a href="/">Home</a><a href="/docs/">Index</a></nav></div></header>
+<main class="container docs-shell">
+<aside class="docs-nav card"><strong>Support</strong><ul><li><a href="getting-started.html">Getting Started</a></li><li><a href="setup-and-onboarding.html">Setup</a></li><li><a href="database-engines.html">Engines</a></li></ul></aside>
+<article class="docs-main card">
+<h1>Troubleshooting</h1>
+
+<h2>1) "DataChat requires a target database connection" after setup</h2>
+<ul>
+<li>Confirm target DB URL was saved in Settings or wizard.</li>
+<li>Check <code>GET /api/v1/system/status</code> for readiness flags.</li>
+<li>Run <code>uv run datachat ask "list all available tables"</code> from CLI to isolate UI issues.</li>
+</ul>
+
+<h2>2) Metadata generation keeps flickering/polling</h2>
+<ul>
+<li>Check generation status endpoint by <code>job_id</code>.</li>
+<li>If job failed, inspect error and rerun from clean state.</li>
+</ul>
+
+<h2>3) Embedding/vector errors</h2>
+<ul>
+<li>Ensure <code>LLM_OPENAI_API_KEY</code> is set (required for current Chroma embedding path).</li>
+<li>If Chroma storage gets locked/readonly, restart service and clear local vector artifacts.</li>
+</ul>
+
+<h2>4) Reset commands</h2>
+<pre><code># Full reset (recommended for fresh QA)
+uv run datachat reset --yes
+
+# Reset while keeping config
+uv run datachat reset --keep-config --yes
+
+# Reset including target DB clear
+uv run datachat reset --include-target --yes</code></pre>
+
+<h2>5) Bad SQL literals (example: positive vs up/down)</h2>
+<p>Recent updates add a context guard that remaps some categorical literals using profiled sample values. Re-profile + regenerate if schema/datapoints are stale.</p>
+</article></main></body></html>

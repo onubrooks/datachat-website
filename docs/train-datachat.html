@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Train DataChat | DataChat Docs</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head><body>
+<header class="topbar"><div class="container"><div class="brand"><a href="/docs/" style="color:inherit;text-decoration:none;">DataChat Docs</a></div><nav class="nav"><a href="/">Home</a><a href="/docs/">Index</a></nav></div></header>
+<main class="container docs-shell">
+<aside class="docs-nav card"><strong>Train Flow</strong><ul><li><a href="datapoints-and-metadata.html">Metadata</a></li><li><a href="api-and-cli.html">API + CLI</a></li><li><a href="troubleshooting.html">Troubleshooting</a></li></ul></aside>
+<article class="docs-main card">
+<h1>Train DataChat (Create/Update Query DataPoint)</h1>
+<p>Use this when an answer is weak or wrong and you want to teach DataChat an explicit SQL pattern.</p>
+
+<h2>Flow</h2>
+<ol>
+<li>Run question in chat.</li>
+<li>Click <strong>Train DataChat</strong>.</li>
+<li>Choose create new or update existing training datapoint.</li>
+<li>Provide datapoint name, related tables, SQL, and metadata notes.</li>
+<li>Save, wait for sync/indexing confirmation, then ask again.</li>
+</ol>
+
+<h2>Recommended metadata notes</h2>
+<ul>
+<li><strong>grain</strong>: e.g. <code>daily_store_product</code></li>
+<li><strong>exclusions</strong>: e.g. returns, null statuses, archived records</li>
+<li><strong>confidence_notes</strong>: validation caveats and freshness assumptions</li>
+</ul>
+
+<h2>Example training payload guidance</h2>
+<pre><code>Name: Weekly SKU Stockout Risk
+Related tables: public.grocery_inventory_snapshots, public.grocery_products
+Notes: Use latest available snapshot window (not CURRENT_DATE). Rank by available_qty - reorder_level.
+</code></pre>
+
+<h2>What this improves</h2>
+<ul>
+<li>Retrieval ranking for similar questions.</li>
+<li>SQL generation consistency on repeated intent.</li>
+<li>Operator trust by exposing explicit query logic.</li>
+</ul>
+</article></main></body></html>

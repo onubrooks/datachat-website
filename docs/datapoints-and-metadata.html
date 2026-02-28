@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DataPoints + Metadata | DataChat Docs</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head><body>
+<header class="topbar"><div class="container"><div class="brand"><a href="/docs/" style="color:inherit;text-decoration:none;">DataChat Docs</a></div><nav class="nav"><a href="/">Home</a><a href="/docs/">Index</a></nav></div></header>
+<main class="container docs-shell">
+<aside class="docs-nav card"><strong>Metadata</strong><ul><li><a href="train-datachat.html">Train Flow</a></li><li><a href="database-engines.html">Engines</a></li><li><a href="troubleshooting.html">Troubleshooting</a></li></ul></aside>
+<article class="docs-main card">
+<h1>DataPoints and Metadata</h1>
+<p>DataChat uses DataPoints as retrieval-ready context. Two common sources:</p>
+<ul>
+<li><strong>Managed</strong>: generated from profile + approved/synced.</li>
+<li><strong>User-trained</strong>: created from Train DataChat flow.</li>
+</ul>
+
+<h2>Metadata requirements</h2>
+<p>Generated and trained datapoints should keep these fields populated:</p>
+<ul>
+<li><code>metadata.grain</code></li>
+<li><code>metadata.exclusions</code></li>
+<li><code>metadata.confidence_notes</code></li>
+</ul>
+
+<h2>Profiling signals used</h2>
+<p>Generation now leverages column profile details for richer grounding:</p>
+<ul>
+<li>sample values</li>
+<li>distinct counts</li>
+<li>min/max where available</li>
+<li>null counts where available</li>
+</ul>
+
+<h2>UI explorer behavior</h2>
+<ul>
+<li>Schema explorer and Metadata explorer are separate views.</li>
+<li>Managed and approved records can be filtered.</li>
+<li>Use details modal for full payload inspection and QA.</li>
+</ul>
+
+<h2>CLI helpers</h2>
+<pre><code>uv run datachat dp pending list
+uv run datachat dp list
+uv run datachat dp sync --datapoints-dir ./datapoints</code></pre>
+</article></main></body></html>

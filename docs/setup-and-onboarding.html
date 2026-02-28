@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setup + Onboarding | DataChat Docs</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head><body>
+<header class="topbar"><div class="container"><div class="brand"><a href="/docs/" style="color:inherit;text-decoration:none;">DataChat Docs</a></div><nav class="nav"><a href="/">Home</a><a href="/docs/">Index</a></nav></div></header>
+<main class="container docs-shell">
+<aside class="docs-nav card"><strong>Onboarding</strong><ul><li><a href="getting-started.html">Getting Started</a></li><li><a href="datapoints-and-metadata.html">Metadata</a></li><li><a href="api-and-cli.html">API + CLI</a></li></ul></aside>
+<article class="docs-main card">
+<h1>Setup and Onboarding Flow</h1>
+<p>Default onboarding sequence:</p>
+<ol>
+<li>Connect target database.</li>
+<li>Generate metadata from profiling (recommended depth: <code>metrics_full</code>).</li>
+<li>Approve pending datapoints and sync.</li>
+<li>Ask first question.</li>
+</ol>
+
+<h2>Wizard-first path</h2>
+<pre><code>uv run datachat onboarding wizard \
+  --database-url postgresql://user:pass@host:5432/db \
+  --depth metrics_full \
+  --sample-size 120 \
+  --batch-size 10</code></pre>
+
+<h2>Settings-first path</h2>
+<ul>
+<li>Open <code>/settings</code>.</li>
+<li>Set runtime config and secrets (provider, keys, target DB URL).</li>
+<li>Save runtime config and secrets.</li>
+<li>Return to chat and run onboarding.</li>
+</ul>
+
+<h2>Notes</h2>
+<ul>
+<li>If <code>SYSTEM_DATABASE_URL</code> is absent, registry/profiling/pending approval flows are limited.</li>
+<li>If onboarding appears complete but chat still shows setup state, run reset once and rerun onboarding.</li>
+</ul>
+</article></main></body></html>

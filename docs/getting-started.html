@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting Started | DataChat Docs</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head><body>
+<header class="topbar"><div class="container"><div class="brand"><a href="/docs/" style="color:inherit;text-decoration:none;">DataChat Docs</a></div><nav class="nav"><a href="/">Home</a><a href="/docs/">Index</a></nav></div></header>
+<main class="container docs-shell">
+<aside class="docs-nav card"><strong>Pages</strong><ul><li><a href="setup-and-onboarding.html">Setup + Onboarding</a></li><li><a href="datapoints-and-metadata.html">Metadata</a></li><li><a href="train-datachat.html">Train Flow</a></li><li><a href="troubleshooting.html">Troubleshooting</a></li></ul></aside>
+<article class="docs-main card">
+<h1>Getting Started in 5 Minutes</h1>
+<p>Minimum path for a first useful answer:</p>
+<ol>
+<li>Install and start app.</li>
+<li>Set provider key(s) and target DB in Settings or wizard.</li>
+<li>Run onboarding wizard (recommended).</li>
+<li>Ask first question and inspect SQL.</li>
+</ol>
+
+<h2>Install</h2>
+<pre><code>git clone https://github.com/onubrooks/datachat-community.git
+cd datachat-community
+python3 -m venv venv
+source venv/bin/activate
+pip install -e .
+uv run datachat dev</code></pre>
+
+<h2>Required keys</h2>
+<ul>
+<li><code>LLM_OPENAI_API_KEY</code>: currently required for Chroma embeddings.</li>
+<li>Main chat provider keys: set based on selected provider (OpenAI/Google/Anthropic).</li>
+</ul>
+
+<h2>Database requirements</h2>
+<ul>
+<li>Target DB: PostgreSQL, MySQL, or ClickHouse.</li>
+<li>System DB (optional but recommended): PostgreSQL for registry/profiling/pending approvals.</li>
+</ul>
+
+<h2>First question</h2>
+<pre><code>uv run datachat ask "list all available tables"</code></pre>
+
+<p class="note">If onboarding is complete and this still fails, use <a href="troubleshooting.html">Troubleshooting</a>.</p>
+</article></main></body></html>
