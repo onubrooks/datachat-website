@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DataChat | Product + Docs</title>
-  <meta name="description" content="DataChat helps teams ask data questions in natural language with SQL transparency, metadata grounding, and a practical onboarding flow.">
+  <title>DataChat | Reliable AI for Business Data Questions</title>
+  <meta name="description" content="DataChat helps teams ask data questions in natural language, inspect SQL, and improve retrieval quality with metadata and training flows.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -15,94 +15,119 @@
     <div class="container">
       <div class="brand">DataChat</div>
       <nav class="nav">
-        <a href="/docs/">Docs</a>
+        <a href="features.html">Features</a>
+        <a href="use-cases.html">Use Cases</a>
+        <a href="comparison.html">Comparison</a>
+        <a href="docs/">Docs</a>
         <a href="https://github.com/onubrooks/datachat-community" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn btn-primary" href="/docs/getting-started.html">Start in 5 Minutes</a>
+        <a class="btn btn-primary" href="docs/getting-started.html">Start in 5 Minutes</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
     <section class="hero">
-      <span class="badge ok">Open Source</span>
-      <span class="badge warn">SQL-First</span>
-      <h1>Ask business questions, inspect SQL, and improve answers with metadata.</h1>
+      <div class="hero-eyebrow">AI data assistant built for operational reliability</div>
+      <h1>Ask business questions, inspect SQL, and teach the system when answers are weak.</h1>
       <p>
-        DataChat is an AI data assistant focused on reliability over hype. You can connect a real database,
-        generate and review metadata, run queries from chat or CLI, and teach the system using explicit datapoints.
+        DataChat is a SQL-first assistant for teams that need useful answers, traceable logic, and controllable behavior.
+        It combines chat + CLI, metadata generation, and explicit training loops without pretending to be a black-box autopilot.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="/docs/getting-started.html">Read Quickstart</a>
-        <a class="btn" href="/docs/">Browse Docs</a>
-      </div>
-    </section>
-
-    <section class="section grid grid-3">
-      <article class="card">
-        <h3>Fast onboarding</h3>
-        <p>Wizard-first flow: connect target DB -> generate metadata -> ask first question. Settings page can also be used for runtime keys and URLs.</p>
-      </article>
-      <article class="card">
-        <h3>Transparent answers</h3>
-        <p>UI exposes answer, SQL, table, visualization, evidence, and timing. Multi-question responses can show subquestion-specific SQL and artifacts.</p>
-      </article>
-      <article class="card">
-        <h3>Teach the system</h3>
-        <p>Use <code>Train DataChat</code> to create or update query datapoints from failed/weak answers, then retry and validate improvements.</p>
-      </article>
-    </section>
-
-    <section class="section">
-      <h2>Current capability snapshot</h2>
-      <div class="card">
-        <div class="kv">
-          <div>Target engines</div><div>PostgreSQL, MySQL, ClickHouse</div>
-          <div>System DB</div><div>PostgreSQL (recommended for registry, profiling, pending approvals)</div>
-          <div>Primary interfaces</div><div>Web UI + CLI</div>
-          <div>Metadata flow</div><div>Profile -> Generate -> Approve -> Sync -> Retrieve at query time</div>
-          <div>Embedding dependency</div><div>OpenAI key currently required for Chroma embeddings</div>
-        </div>
+        <a class="btn btn-primary" href="docs/getting-started.html">Quickstart</a>
+        <a class="btn" href="features.html">Explore features</a>
       </div>
     </section>
 
     <section class="section">
-      <h2>Quick CLI example</h2>
-      <div class="card">
-<pre><code># 1) Start services
-uv run datachat dev
-
-# 2) Optional full onboarding flow
-uv run datachat onboarding wizard \
-  --database-url postgresql://user:pass@host:5432/db \
-  --depth metrics_full
-
-# 3) Ask a question
-uv run datachat ask "list all available tables"
-</code></pre>
+      <h2>Why teams use DataChat</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Transparent outputs</h3>
+          <p>Each response can expose answer, SQL, table, visualization, evidence, and timing so users can validate quickly.</p>
+        </article>
+        <article class="card">
+          <h3>Metadata-driven quality</h3>
+          <p>Profile schema, generate managed datapoints, approve/sync, and retrieve better context at question time.</p>
+        </article>
+        <article class="card">
+          <h3>Train-from-answer loop</h3>
+          <p>Turn weak answers into query datapoints and improve repeated intents without retraining a model.</p>
+        </article>
       </div>
-      <p class="note">For docs and examples that match the current product state, use <a href="/docs/">/docs</a>.</p>
     </section>
 
-    <section class="section grid grid-3">
-      <article class="card">
-        <h3>Community repo</h3>
-        <p>Core SQL + metadata experience, onboarding workflow, and CLI-first operations.</p>
-        <a href="https://github.com/onubrooks/datachat-community" target="_blank" rel="noopener">Open repository</a>
-      </article>
-      <article class="card">
-        <h3>Private repo</h3>
-        <p>Enterprise-focused layers: deeper governance, semantic ops, and advanced workflow features.</p>
-        <a href="/docs/community-vs-private.html">See feature split</a>
-      </article>
-      <article class="card">
-        <h3>Documentation</h3>
-        <p>Setup, onboarding, metadata generation, training loop, engine parity, and troubleshooting.</p>
-        <a href="/docs/index.html">Read docs</a>
-      </article>
+    <section class="section">
+      <h2>What works today</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Onboarding wizard</h3>
+          <p>Connect DB -> generate metadata -> ask first question in one guided flow.</p>
+        </article>
+        <article class="card">
+          <h3>Engine support</h3>
+          <p>Target DBs: PostgreSQL, MySQL, ClickHouse. System DB: PostgreSQL.</p>
+        </article>
+        <article class="card">
+          <h3>Settings-first runtime config</h3>
+          <p>Provider keys and runtime settings can be managed in-product, not only via <code>.env</code>.</p>
+        </article>
+        <article class="card">
+          <h3>Schema + metadata explorer</h3>
+          <p>Review table structure and generated/managed datapoints from the chat workspace.</p>
+        </article>
+        <article class="card">
+          <h3>CLI parity</h3>
+          <p>Ask, onboarding, generate/approve datapoints, and reset flows are available via CLI for QA and automation.</p>
+        </article>
+        <article class="card">
+          <h3>Reset hygiene</h3>
+          <p>Reset commands clear runtime state for repeatable test runs and launch smoke checks.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How the workflow looks</h2>
+      <div class="card">
+        <ol class="steps">
+          <li><strong>Connect:</strong> add target database and provider keys.</li>
+          <li><strong>Ground:</strong> run profiling + metadata generation, approve candidates.</li>
+          <li><strong>Ask:</strong> inspect SQL and artifacts, not just plain answers.</li>
+          <li><strong>Improve:</strong> use Train DataChat for high-value failed intents.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>At-a-glance capability snapshot</h2>
+      <div class="card">
+        <table class="table">
+          <thead>
+            <tr><th>Area</th><th>Current State</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Target engines</td><td>PostgreSQL, MySQL, ClickHouse</td></tr>
+            <tr><td>System DB</td><td>PostgreSQL (registry/profiling/pending workflows)</td></tr>
+            <tr><td>Interfaces</td><td>Web UI + CLI</td></tr>
+            <tr><td>Retrieval inputs</td><td>Schema + managed/user datapoints + profile signals</td></tr>
+            <tr><td>Embedding dependency</td><td>OpenAI key currently required for Chroma embeddings</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Need deeper evaluation? Open <a href="comparison.html">Comparison</a> and <a href="docs/">Docs</a>.</p>
+    </section>
+
+    <section class="section cta-band">
+      <h2>Start with the community repo, scale into private capabilities later.</h2>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://github.com/onubrooks/datachat-community" target="_blank" rel="noopener">Open Community Repo</a>
+        <a class="btn" href="docs/community-vs-private.html">Community vs Private</a>
+      </div>
     </section>
 
     <footer class="footer">
-      <small>DataChat website and docs are maintained from shipped product behavior (not roadmap-only claims).</small>
+      <small>DataChat content is aligned to shipped behavior and explicit roadmap scope.</small>
     </footer>
   </main>
 </body>

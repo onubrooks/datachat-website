@@ -1,30 +1,28 @@
 # DataChat Website
 
-Marketing + documentation site for DataChat.
+Website + docs content hub for DataChat.
 
-## Contents
+## Site map
 
-- `index.html`: product overview and key entry points.
-- `docs/`: documentation pages aligned to shipped features.
-- `assets/styles.css`: shared styling.
+- `index.html`: marketing homepage
+- `features.html`: feature breakdown
+- `use-cases.html`: practical usage scenarios
+- `comparison.html`: positioning comparison (including DataChat, Vanna, LibreChat)
+- `docs/`: documentation pages aligned to current shipped behavior
 
 ## Local preview
-
-Any static server works. Example:
 
 ```bash
 cd datachat-website
 python -m http.server 8080
 ```
 
-Open:
+Then open:
 - `http://localhost:8080/`
 - `http://localhost:8080/docs/`
 
-## Scope discipline
+## Content policy
 
-This site should stay aligned to actual product behavior in:
-- `datachat` (private)
-- `datachat-community`
-
-Avoid roadmap-only claims unless clearly marked.
+- Keep claims aligned to actual shipped behavior.
+- Avoid roadmap hype in core marketing copy.
+- Explicitly call out dependency/ops requirements when relevant.
