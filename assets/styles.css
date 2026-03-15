@@ -252,3 +252,42 @@ pre {
     grid-template-columns: 1fr;
   }
 }
+
+.hero-eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--accent-2);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.steps {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.steps li {
+  margin-bottom: 8px;
+}
+
+.list-check {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.list-check li {
+  margin-bottom: 7px;
+}
+
+.cta-band {
+  margin-top: 16px;
+  margin-bottom: 22px;
+  padding: 22px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(45, 212, 191, 0.12), rgba(56, 189, 248, 0.06));
+}
+
+.cta-band h2 {
+  margin-top: 0;
+}
